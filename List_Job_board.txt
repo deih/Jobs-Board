@@ -1,0 +1,31 @@
+1. Add ability to create a job:
+	* Model Job - title:string desc:text company:string url:string
+	* Controller Jobs
+		- add #index
+	* Add routes:
+		- resources for jobs and root path
+	* Gems:
+		- simple_form
+			. run the generator with bootstrap flag
+		- haml
+		- bootstrap-sass:
+			. rename to .scss and add @import files
+			. require bootstrap-sprockets
+	* Add index.html.haml
+	* Add CRUD actions to the controller
+		- add actions
+		- add private methods (find and params) and fullfill them
+		- fullfill #new and #create
+		- add before action
+	* Add new.html.haml and _form:
+		- add simple form for job (html class: form-horizontal)
+		- fullfill new with render
+	* Add show.html.haml and fullfill it with job.title and desc and company
+	* List all of the jobs in index page, using .each
+		- fullfill #index with order
+		- add link to add new jobs
+		- add link to job's title
+2. Add ability do delete and destroy jobs:
+	* fullfill #update and #destroy
+	* add links to show page
+	* create edit.html.haml (same as new)
