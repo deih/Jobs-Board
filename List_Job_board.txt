@@ -29,3 +29,15 @@
 	* fullfill #update and #destroy
 	* add links to show page
 	* create edit.html.haml (same as new)
+3. Creating categories for jobs:
+	* model Category - name:string
+	* migration: category_id to Jobs cat_id:integer
+	* add association between category and jobs
+	* create categories form the console
+		- Full Time
+		- Part Time
+		- Freelance
+		- Consulting
+	* for each category add expected jobs:
+		- add category pool to job's form (f.collection_select :category_id, Category.all, :id, :name, {promt: "Choose a category"})
+		- ad cat_id to strong_params
