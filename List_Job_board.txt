@@ -41,3 +41,21 @@
 	* for each category add expected jobs:
 		- add category pool to job's form (f.collection_select :category_id, Category.all, :id, :name, {promt: "Choose a category"})
 		- ad cat_id to strong_params
+* ADD NAVIGATION FOR CATEGORIES:
+	* change application to .haml
+	* add ruby nav to application.html.haml:
+		- Category.all.each do |cat|
+			= link_to cat.name, jobs_path(cat: category.name)
+	* add to #index:
+		if params[:category].blank?
+			@jobs = Job.all.order('created_at DESC')
+		else
+			@category_id = Category.find_by(name: params[:category]).id
+			@jobs = Job.where(category_id: @category_id).order('created_at DESC')
+		end
+5. Styling:
+	* style application.html.haml
+	* add styles to application.css.scss
+	* style index.html.haml
+	* style show.html.haml
+	* style _form

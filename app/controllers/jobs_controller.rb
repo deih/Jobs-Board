@@ -2,7 +2,12 @@ class JobsController < ApplicationController
 	before_action :find_job, except: [:index, :new, :create]
 
 	def index
-		@jobs = Job.all.order('created_at DESC')
+		if params[:category].blank?
+			@jobs = Job.all.order('created_at DESC')
+		else
+			@category_id = Category.find_by(name: params[:category]).id
+			@jobs = Job.where(category: @category_id).order('created_at DESC')
+		end
 	end
 
 	def show
